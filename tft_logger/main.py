@@ -29,8 +29,8 @@ def main():
     screen = ScreenCapture(monitor_index=2)
     ocr = OcrEngine()
 
-    print("Start odczytu golda. Przerwij CTRL+C.")
-    print(f"Region golda: {GOLD_REGION}, interwał: {INTERVAL_S}s")
+    print("Gold reading started. Stop with CTRL+C.")
+    print(f"Gold region: {GOLD_REGION}, interval: {INTERVAL_S}s")
 
     storage = JsonStorage(LOG_PATH)
     first = True
@@ -61,7 +61,7 @@ def main():
             time.sleep(INTERVAL_S)
 
     except KeyboardInterrupt:
-        print("\nZatrzymano odczyt (CTRL+C).")
+        print("\nReading stopped (CTRL+C).")
     finally:
         storage.close()
 
