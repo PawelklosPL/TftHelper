@@ -7,8 +7,8 @@ from .base import BaseStorage
 
 class JsonStorage(BaseStorage):
     """
-    Prosty storage, który zapisuje każdy stan jako jedną linię JSON.
-    Np:
+    A simple storage that saves each state as a single JSON line.
+    For example:
     {"timestamp": 123.45, "gold": 20, "level": 6}
     """
 
