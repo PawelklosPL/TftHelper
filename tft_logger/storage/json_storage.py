@@ -16,14 +16,15 @@ class JsonStorage(BaseStorage):
         self._path = path
         self._file: TextIO = open(self._path, "a", encoding="utf-8")
 
-    def append_state(self, timestamp: float, gold: int, level: int) -> None:
+    def append_state(self, timestamp: float, gold: int, map: str, expo: str = None, player_level: int = None) -> None:
         entry = {
             "timestamp": timestamp,
             "gold": gold,
-            "level": level,
+            "map": map,
+            "expo": expo,
+            "player_level": player_level,
         }
         self._file.write(json.dumps(entry) + "\n")
-        # od razu flush, żeby nic nie zginęło przy craszu
         self._file.flush()
 
     def close(self) -> None:
